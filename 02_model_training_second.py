@@ -95,10 +95,10 @@ def run_training_pipeline():
         output_dir=os.path.join(MODEL_DIR, 'legal_transformer_finetuned'),
         eval_strategy="epoch",
         save_strategy="epoch",
-        learning_rate=2e-5,
+        learning_rate=3e-5, # used to be 2e-5
         per_device_train_batch_size=8,
         per_device_eval_batch_size=8,
-        num_train_epochs=2,
+        num_train_epochs=4, # use to be 2
         weight_decay=0.01,
         load_best_model_at_end=True,
         metric_for_best_model="macro_f1",
