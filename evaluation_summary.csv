@@ -1,0 +1,3 @@
+Model Architecture,Test Macro F1-Score
+Classical Baseline (TF-IDF + Linear SVM),0.8781400630329996
+Fine-Tuned Transformer ANN (DistilBERT),0.8958333333333334
