@@ -103,7 +103,8 @@ def run_training_pipeline():
         load_best_model_at_end=True,
         metric_for_best_model="macro_f1",
         logging_steps=10,
-        report_to="none"
+        report_to="none",
+        use_cpu=True #Local CPU hardware constraint
     )
     
     trainer = Trainer(
@@ -123,6 +124,19 @@ def run_training_pipeline():
     trainer.save_model(transformer_save_path)
     tokenizer.save_pretrained(transformer_save_path)
     print(f"\nTransformer ANN model successfully trained and saved to: {transformer_save_path}")
+
+    print("\n=== 4. EVALUATING FINE-TUNED TRANSFORMER ON TEST SET ===")
+    test_hf = Dataset.from_dict({'text': X_test.tolist(), 'label': test_labels})
+    test_tokenized = test_hf.map(tokenize_function, batched=True)
+
+    # Evaluate the best loaded model (loaded via load_best_model_at_end=True) on test data
+    test_results = trainer.predict(test_tokenized)
+    test_preds = np.argmax(test_results.predictions, axis=-1)
+    
+    macro_f1_transformer = f1_score(test_labels, test_preds, average='macro', zero_division=0)
+    print(f"Fine-Tuned DistilBERT Test Macro F1-Score: {macro_f1_transformer:.4f}")
+    print("\nTransformer Test Classification Report:")
+    print(classification_report(test_labels, test_preds, target_names=label_encoder.classes_))
 
 if __name__ == "__main__":
     run_training_pipeline()

@@ -5,7 +5,7 @@ import joblib
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-# page configuration setup
+# page configuration setup title
 st.set_page_config(
     page_title="Sri Lankan Legal AI - ANN classifier and Explainable AI",
     page_icon="⚖️",
