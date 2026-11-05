@@ -3,7 +3,9 @@
 An end-to-end Machine Learning and Artificial Neural Network (ANN) pipeline designed to classify Sri Lankan appellate case summaries into four primary statutory domains, feature-engineered with strict group-isolated data splits to eliminate structural data leakage, 
 and deployed with an Explainable AI (XAI) Streamlit dashboard.
 
----
+*** Please note***: Due to size issues Models folder was uploaded separately to One drive, please find the link and apply according to the Project Repository Structure shown below.
+# Models generated following 02_model_training_second.py file is runnned.
+One Drive Link containing the models: https://nibm-my.sharepoint.com/personal/comscds252p-012_student_nibm_lk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fcomscds252p%2D012%5Fstudent%5Fnibm%5Flk%2FDocuments%2FANN%20Legal%20Domain%20Coursework%20Model%20Folder&ga=1 
 
 ## 📌 1. Project Overview & Key Deliverables
 
